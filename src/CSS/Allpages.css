@@ -1,0 +1,17 @@
+.navbar-btn, a, ul {
+    list-style: none;
+    text-decoration: none;
+    margin:5px;
+    padding: 5px;
+}
+.navbar-right {
+    display: inline-flex;
+    justify-content: flex-end;
+    
+}
+
+.navbar-left {
+    display: inline-flex;
+    justify-content: center;
+    
+}
