@@ -1,4 +1,5 @@
 import './App.css';
+import './CSS/Allpages.css';
 import Home from './components/Home';
 import Products from './components/Products';
 import Mypage from './components/Mypage';
@@ -10,17 +11,18 @@ function App() {
   return (
     <Router>
         <div className="App">
-              <ul className='navbar'>
-                  <button><li> <Link to="/">Home</Link></li></button> 
-                  <button><li> <Link to="/Products">Products</Link></li></button>
-                  <button><li> <Link to="/Shoppingcart">Shoppingcart</Link></li></button>  
-                  <button><li> <Link to="/About">About</Link></li></button> 
+            
+              <ul className='navbar-left'>
+                  <button className='navbar-btn'><li> <Link to="/">Home</Link></li></button> 
+                  <button className='navbar-btn'><li> <Link to="/Products">Products</Link></li></button>
+                  <button className='navbar-btn'><li> <Link to="/About">About</Link></li></button> 
               </ul>
                   
-              <ul className='profile-btn'>
-                   <button><li> <Link to="/Mypage">My page</Link></li></button> 
+              <ul className='navbar-right'>
+                   <button className='navbar-btn'><li> <Link to="/Mypage">My page</Link></li></button> 
+                   <button className='navbar-btn'><li> <Link to="/Shoppingcart">Shoppingcart</Link></li></button>  
               </ul>
-
+            
 
             <Routes>
                 <Route exact path="/" element={<Home />}></Route>
