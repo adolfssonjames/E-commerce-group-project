@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../CSS/Payment.css';
 import StripeContainer from './StripeContainer'
 
 const Shoppingcart = () => {
