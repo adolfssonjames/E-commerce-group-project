@@ -7,3 +7,5 @@ const Shoppingcart = () => {
     </div>
   )
 }
+
+export default Shoppingcart
