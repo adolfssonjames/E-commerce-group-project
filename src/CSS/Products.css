@@ -1,0 +1,9 @@
+#articles {
+  display: flex;
+}
+.product {
+  border: 1px solid black;
+  margin: auto;
+  padding: 10px;
+  border-radius: 8px;
+}
