@@ -9,14 +9,14 @@ function MyAccount() {
   
     return (
     <div>
-        <table className='test'>
-            <tr>
-                <td>email:</td>
-                <button>update email</button>
-                <td>password: </td>
-                <button>update password</button>
-            </tr>
-        </table>
+        <form className='test'>
+            <label htmlFor="updateEmailInputField">email:</label>
+            <input type="text" id="updateEmailInputField"/>
+            <button>update email</button>
+            <label htmlFor="updatePasswordInputField">password: </label>
+            <input type="text" id="updatePasswordInputField"/>
+            <button>update password</button>
+        </form>
 
         <table>
             <tr>

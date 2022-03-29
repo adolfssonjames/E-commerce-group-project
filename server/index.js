@@ -1,14 +1,19 @@
-const express = require("express")
-const app = express()
-require("dotenv").config()
-const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
-const bodyParser = require("body-parser")
-const cors = require("cors")
+const express = require("express");
+const app = express();
+require("dotenv").config();
+const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST);
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const mongoose = require('mongoose');
+const routesURLs = require ('./routes/routes');
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
 
-app.use(cors())
+
+
+mongoose.connect(process.env.DATABASE_ACCESS, () => console.log('Database connected'))
+
+
+
 
 app.post("/payment", cors(), async (req, res) => {
 	let { amount, id } = req.body
@@ -34,6 +39,13 @@ app.post("/payment", cors(), async (req, res) => {
 	}
 })
 
-app.listen(process.env.PORT || 4000, () => {
-	console.log("Sever is listening on port 4000")
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(cors())
+app.use('/', routesURLs);
+
+
+app.listen(process.env.PORT || 5000, () => {
+	console.log("Sever is listening on port 5000")
 })
