@@ -8,4 +8,10 @@
   margin-bottom: 24px;
   padding: 10px;
   border-radius: 8px;
+  width: 200px;
+  height: 300px;
+}
+.toCartButton {
+  border: 1px solid gray;
+  border-radius: 8px;
 }

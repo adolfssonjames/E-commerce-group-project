@@ -13,6 +13,7 @@ const Products = () => {
           />
           <h2>Quercus robur</h2>
           <h3>69;-</h3>
+          <h3 class="toCartButton">Add to cart</h3>
         </div>
         <div class="product">
           <img
@@ -21,6 +22,7 @@ const Products = () => {
           />
           <h2>P. sylvestris</h2>
           <h3>69;-</h3>
+          <h3 class="toCartButton">Add to cart</h3>
         </div>
         <div class="product">
           <img
@@ -29,6 +31,7 @@ const Products = () => {
           />
           <h2>Betula</h2>
           <h3>69;-</h3>
+          <h3 class="toCartButton">Add to cart</h3>
         </div>
         <div class="product">
           <img
@@ -37,6 +40,7 @@ const Products = () => {
           />
           <h2>Picea abies</h2>
           <h3>69;-</h3>
+          <h3 class="toCartButton">Add to cart</h3>
         </div>
         <div class="product">
           <img
@@ -45,6 +49,7 @@ const Products = () => {
           />
           <h2>Populus tremula</h2>
           <h3>69;-</h3>
+          <h3 class="toCartButton">Add to cart</h3>
         </div>
         <div class="product">
           <img
@@ -53,6 +58,7 @@ const Products = () => {
           />
           <h2>Acer platanoides</h2>
           <h3>69;-</h3>
+          <h3 class="toCartButton">Add to cart</h3>
         </div>
         <div class="product">
           <img
@@ -61,6 +67,7 @@ const Products = () => {
           />
           <h2>Salix</h2>
           <h3>69;-</h3>
+          <h3 class="toCartButton">Add to cart</h3>
         </div>
         <div class="product">
           <img
@@ -69,6 +76,7 @@ const Products = () => {
           />
           <h2>Sorbus aucuparia</h2>
           <h3>69;-</h3>
+          <h3 class="toCartButton">Add to cart</h3>
         </div>
       </div>
     </div>
