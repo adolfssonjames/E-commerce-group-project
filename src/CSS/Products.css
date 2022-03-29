@@ -1,9 +1,11 @@
 #articles {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .product {
   border: 1px solid black;
   margin: auto;
+  margin-bottom: 24px;
   padding: 10px;
   border-radius: 8px;
 }
