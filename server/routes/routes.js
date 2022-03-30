@@ -13,7 +13,9 @@ const multerStorage = multer.diskStorage({
     }
 })
 const multerImageUpload = multer({storage: multerStorage})
-//const multerImageUpload = multer({dest: 'productImages/'})
+
+
+
 
 router.post('/post', multerImageUpload.single('productImage'), (request, response) =>{
 
