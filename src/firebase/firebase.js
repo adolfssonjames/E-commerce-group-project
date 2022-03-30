@@ -22,7 +22,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(); 
-const storage = getStorage();
+const storage = getStorage(app);
+
 
 export function signup(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -64,5 +65,5 @@ export async function upload(file, currentUser, setLoading) {
     updateProfile(currentUser, {photoURL});
     
     setLoading(false);
-    alert("Uploaded file!");
+    alert("file has been uploaded");
   }

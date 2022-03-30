@@ -1,4 +1,86 @@
-.user-avatar {
-    width: 50px;
-    height:50px;
+#main {
+    background-color: rgb(248, 248, 248,);
+    border-radius: 8px;
+    -webkit-box-shadow: 5px 5px 5px 5px #000000;
+   -moz-box-shadow: 5px 5px 15px 5px #e4e4e4;
+		box-shadow: 1px 2px 5px 7px #e4e4e4;
+    height:500px;
 }
+
+#user-avatar {
+    width: 75px;
+    height:75px;
+    float:right;
+}
+
+#login-status-txt, #login-status-user {
+    float: right;
+    
+}
+#login-status-user {
+    color: lightgreen;
+    padding-left: 10px;
+}
+
+#file-input {
+    display: flex;
+    align-self: flex-end;
+    
+    border-style: none;
+    border-radius: 3px;
+    background-color: rgba(242, 160, 250, 0.8);
+    color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-wrapper-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+
+.account-btn{
+    width:30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#avatar-btn {
+    width:15%;
+    margin-right: 35%;
+    
+}
+
+#status-wrapper {
+    display: flex;
+    align-items:center;
+    justify-content:flex-end;
+}
+
+.fields {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 10px;
+    flex-direction: column;
+}
+
+.input-field {
+    width: 30%;
+    height: 25px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: rgb(223, 223, 223);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.input-field:hover {
+    border-style:groove;
+    border-color: rgb(204, 0, 255);
+}
+
+
+
