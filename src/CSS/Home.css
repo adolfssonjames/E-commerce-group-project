@@ -1,0 +1,35 @@
+#homePageMain {
+  display: grid;
+  grid-template-areas:
+    "a c"
+    "b c";
+  background-color: mistyrose;
+  margin-bottom: 40px;
+  border-radius: 40px;
+}
+#homePageMain > h2 {
+  grid-area: a;
+}
+#homePageMain > p {
+  grid-area: b;
+}
+#homePageMain > img {
+  grid-area: c;
+}
+#homePageSecond {
+  display: grid;
+  grid-template-areas:
+    "c a"
+    "c b";
+  background-color: mistyrose;
+  border-radius: 40px;
+}
+#homePageSecond > h2 {
+  grid-area: a;
+}
+#homePageSecond > p {
+  grid-area: b;
+}
+#homePageSecond > img {
+  grid-area: c;
+}

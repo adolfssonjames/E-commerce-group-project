@@ -5,7 +5,9 @@ const Products = () => {
   return (
     <div>
       <h1> Products </h1>
+
       <div id="articles">
+
         <div class="product">
           <img
             src="../img/pexels-quang-nguyen-vinh-2149105.jpg"
@@ -13,8 +15,9 @@ const Products = () => {
           />
           <h2>Quercus robur</h2>
           <h3>69;-</h3>
-          <h3 class="toCartButton">Add to cart</h3>
+          <button>Add to cart</button>
         </div>
+
         <div class="product">
           <img
             src="../src/img/pexels-quang-nguyen-vinh-2149105.jpg"
@@ -22,8 +25,9 @@ const Products = () => {
           />
           <h2>P. sylvestris</h2>
           <h3>69;-</h3>
-          <h3 class="toCartButton">Add to cart</h3>
+          <button>Add to cart</button>
         </div>
+
         <div class="product">
           <img
             src="../src/img/pexels-quang-nguyen-vinh-2149105.jpg"
@@ -31,8 +35,9 @@ const Products = () => {
           />
           <h2>Betula</h2>
           <h3>69;-</h3>
-          <h3 class="toCartButton">Add to cart</h3>
+          <button>Add to cart</button>
         </div>
+
         <div class="product">
           <img
             src="../src/img/pexels-quang-nguyen-vinh-2149105.jpg"
@@ -40,8 +45,9 @@ const Products = () => {
           />
           <h2>Picea abies</h2>
           <h3>69;-</h3>
-          <h3 class="toCartButton">Add to cart</h3>
+          <button>Add to cart</button>
         </div>
+
         <div class="product">
           <img
             src="../img/pexels-quang-nguyen-vinh-2149105.jpg"
@@ -49,8 +55,9 @@ const Products = () => {
           />
           <h2>Populus tremula</h2>
           <h3>69;-</h3>
-          <h3 class="toCartButton">Add to cart</h3>
+          <button>Add to cart</button>
         </div>
+
         <div class="product">
           <img
             src="../src/img/pexels-quang-nguyen-vinh-2149105.jpg"
@@ -58,8 +65,9 @@ const Products = () => {
           />
           <h2>Acer platanoides</h2>
           <h3>69;-</h3>
-          <h3 class="toCartButton">Add to cart</h3>
+          <button>Add to cart</button>
         </div>
+
         <div class="product">
           <img
             src="../src/img/pexels-quang-nguyen-vinh-2149105.jpg"
@@ -67,8 +75,9 @@ const Products = () => {
           />
           <h2>Salix</h2>
           <h3>69;-</h3>
-          <h3 class="toCartButton">Add to cart</h3>
+          <button>Add to cart</button>
         </div>
+
         <div class="product">
           <img
             src="../src/img/pexels-quang-nguyen-vinh-2149105.jpg"
@@ -76,8 +85,9 @@ const Products = () => {
           />
           <h2>Sorbus aucuparia</h2>
           <h3>69;-</h3>
-          <h3 class="toCartButton">Add to cart</h3>
+          <button>Add to cart</button>
         </div>
+
       </div>
     </div>
   );
