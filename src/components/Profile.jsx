@@ -20,7 +20,7 @@ export default function Profile()  {
     }
 
     useEffect(() => {
-        if (currentUser && currentUser.photoURL) {       
+        if (currentUser?.photoURL) {       
             setPhotoURL(currentUser.photoURL);
          }
 
@@ -30,11 +30,13 @@ export default function Profile()  {
 
     return(
         <div className="fields">
-            <input type="file" onChange={handleChange} />
-            <button disabled={loading || !photo} onClick={handleClick}>Upload avatar</button>
+            <div className='btn-wrapper-div' >
+            <input id="file-input" type="file" onChange={handleChange} />
+                <button id='avatar-btn' disabled={loading || !photo} onClick={handleClick}>Upload avatar</button>
+            </div>
             <img src={photoURL}
                  alt="avatar"
-                 className="user-avatar"/>
+                 id="user-avatar"/>
         </div>
 
 

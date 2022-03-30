@@ -44,17 +44,21 @@ const Mypage = () => {
 
   return (
     <div id="main">
-      <h1>Login to your personal page!</h1>
       
       {!currentUser &&    
       <>
+      <h1>Login to your personal page!</h1>
       <div className="fields">
-        <input ref={emailRef} placeholder="Email" />
-        <input ref={passwordRef} type="password" placeholder="Password" />
-      </div>
+        <label className='label-login' htmlFor="email">Email</label>
+        <input className="input-field" ref={emailRef} placeholder="Email" />
 
-      <button disabled={ loading } onClick={handleSignup}>Sign Up</button>
-      <button disabled={ loading } onClick={handleLogin}>Log In</button>
+        <label className='label-login' htmlFor="password">Password</label>
+        <input className="input-field" ref={passwordRef} type="password" placeholder="Password" />
+      </div>
+      <div className='btn-wrapper-div'>
+          <button className='account-btn' disabled={ loading } onClick={handleSignup}>Sign Up</button>
+          <button className='account-btn' disabled={ loading } onClick={handleLogin}>Log In</button>
+      </div>
       
       </>
       }
@@ -63,9 +67,15 @@ const Mypage = () => {
 
       {currentUser &&
        <> 
-       <div>You are logged in as: { currentUser?.email } </div>
+       <h1>Welcome { currentUser?.email }</h1>
+       <div id='status-wrapper'>
+       <div id='login-status-txt'>You are logged in as: </div>
+       <h3 id='login-status-user'> { currentUser?.email } </h3>
+       </div>
        <Profile />
-       <button disabled={ loading || !currentUser } onClick={handleLogout}>Log Out</button>
+       <div className='btn-wrapper-div'>
+          <button className='account-btn' disabled={ loading || !currentUser } onClick={handleLogout}>Log Out</button>
+       </div>
       </>
       }
 
