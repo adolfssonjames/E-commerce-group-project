@@ -1,9 +1,7 @@
 import React from 'react'
-
-
 import { useRef, useState } from "react";
-
-import { signup, login, logout, useAuth } from "./firebase.js";
+import { signup, login, logout, useAuth } from "../firebase/firebase.js";
+import Profile from './Profile.jsx';
 
 
 const Mypage = () => {
@@ -15,11 +13,11 @@ const Mypage = () => {
 
   async function handleSignup() {
     setLoading(true);
-    // try {
+     try {
       await signup(emailRef.current.value, passwordRef.current.value);
-    // } catch {
-      // alert("Error!");
-    // }
+     } catch {
+       alert("Error! Could not sign up, try again");
+     }
     setLoading(false);
   }
 
@@ -28,7 +26,7 @@ const Mypage = () => {
     try {
       await login(emailRef.current.value, passwordRef.current.value);
     } catch {
-      alert("Error!");
+      alert("Error! Wrong email or password");
     }
     setLoading(false);
   }
@@ -46,17 +44,30 @@ const Mypage = () => {
 
   return (
     <div id="main">
+      <h1>Login to your personal page!</h1>
       
-      <div>Currently logged in as: { currentUser?.email } </div>
-
-      <div id="fields">
+      {!currentUser &&    
+      <>
+      <div className="fields">
         <input ref={emailRef} placeholder="Email" />
         <input ref={passwordRef} type="password" placeholder="Password" />
       </div>
 
-      <button disabled={ loading || currentUser } onClick={handleSignup}>Sign Up</button>
-      <button disabled={ loading || currentUser } onClick={handleLogin}>Log In</button>
-      <button disabled={ loading || !currentUser } onClick={handleLogout}>Log Out</button>
+      <button disabled={ loading } onClick={handleSignup}>Sign Up</button>
+      <button disabled={ loading } onClick={handleLogin}>Log In</button>
+      
+      </>
+      }
+
+      
+
+      {currentUser &&
+       <> 
+       <div>You are logged in as: { currentUser?.email } </div>
+       <Profile />
+       <button disabled={ loading || !currentUser } onClick={handleLogout}>Log Out</button>
+      </>
+      }
 
     </div>
   );
