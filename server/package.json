@@ -17,6 +17,7 @@
     "express": "^4.17.3",
     "express-router": "^0.0.1",
     "mongoose": "^6.2.9",
+    "multer": "^1.4.4",
     "nodemon": "^2.0.15",
     "stripe": "^8.212.0"
   }
