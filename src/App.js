@@ -7,9 +7,16 @@ import MyAccount from './components/MyAccount';
 import Shoppingcart from './components/Shoppingcart';
 import About from './components/About';
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+import { CartProvider, useCart } from "react-use-cart"
 
 function App() {
+
+const {
+  totalItems
+} = useCart()
+
   return (
+
     <Router>
         <div className="App">
             
@@ -21,10 +28,11 @@ function App() {
                   
               <ul className='navbar-right'>
                    <button className='navbar-btn'><li> <Link to="/Mypage">My page</Link></li></button> 
-                   <button className='navbar-btn'><li> <Link to="/Shoppingcart">Shoppingcart</Link></li></button>  
+                   <button className='navbar-btn'><li> <Link to="/Shoppingcart">Shoppingcart ({totalItems})</Link></li></button>  
               </ul>
-            
 
+              <CartProvider>
+            
             <Routes>
                 <Route exact path="/" element={<Home />}></Route>
                 <Route path="/Products" element={<Products />}></Route>
@@ -33,6 +41,7 @@ function App() {
                 <Route path="/Shoppingcart" element={<Shoppingcart />}></Route>
                 <Route path="/About" element={<About />}></Route>
             </Routes>
+            </CartProvider>
         </div>
     </Router>
   );

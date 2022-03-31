@@ -1,34 +1,66 @@
-import React, { useState } from 'react'
-import '../CSS/Payment.css';
-import StripeContainer from './StripeContainer'
+import React, { useState } from 'react';
 import { useCart } from 'react-use-cart';
 
 const Shoppingcart = () => {
 
-  const [showItem, setShowItem] = useState(false);
+  const { 
 
-  const {
     isEmpty,
     items,
-    totalItems, 
+    totalItems,
     cartTotal,
     updateItemQuantity,
     removeItem,
     emptyCart
-  } = useCart()
 
-  if (isEmpty) return <h2>Din varukorg är tom...</h2> 
+ } = useCart()
+ 
+
+ if (isEmpty) return <h2>Your cart is empty...</h2>
+
 
   return (
+  <section>
+
     <div>
-        <h1> Shopping Cart</h1>
-        <div>
-          <p>
-            {showItem ? <StripeContainer/> : <> <h3>Price: ex.10kr</h3> <img alt="exempelbild"/>
-            <button onClick={() => setShowItem(true)} >Fortsätt till secure payment </button> </>}
-          </p>
-        </div>
+    <h1>Shopping cart ({totalItems})</h1>
+
+      <table className='CartTable'>
+      
+      <tbody className='CartTbody'>
+
+      {items.map((cartitem) => {
+        return (
+
+        <tr key={cartitem.id}>
+
+          <td><img src={cartitem.image} style={{height: '6rem'}}></img></td>
+          <td><h5>{cartitem.name}</h5></td>
+          <td><h5>${cartitem.price}</h5></td>
+          <td><h5>x{cartitem.quantity}</h5></td>
+          <td><button className='MinusBtn' onClick={() => updateItemQuantity(cartitem.id, cartitem.quantity -1)}>-</button></td>
+          <td><button className='PlusBtn' onClick={() => updateItemQuantity(cartitem.id, cartitem.quantity +1)}>+</button></td>
+          <td><button className='RemoveBtn' onClick={() => removeItem(cartitem.id)}>Remove items</button></td>
+        
+        </tr>
+
+          )
+      })}
+
+      </tbody>
+      </table>
     </div>
+    
+    <div>
+      <h4>Total Price: ${cartTotal}</h4>
+     </div>
+
+     <div>
+       <button onClick={emptyCart}>Pay now</button>
+     </div>
+  </section>
+
+
   )
 }
 
