@@ -1,7 +1,34 @@
 import React from "react";
 import "../CSS/Products.css";
+import data from './ProductData'
 
 const Products = () => {
+
+  console.log(data.Items)
+
+
+  return (
+
+<div>
+  {data.Items.map((item) => {
+
+    return (
+
+          <div key={item.id}>
+          <img src={item.image} width="100" height="100"></img>
+          <h5>{item.name}</h5> 
+          <p>${item.price}</p>
+          <button>Add to cart</button>
+          </div>
+    )
+  })}
+
+</div>
+
+  )
+  
+
+  /*
   return (
     <div>
       <h1> Products </h1>
@@ -91,6 +118,7 @@ const Products = () => {
       </div>
     </div>
   );
+  */
 };
 
 export default Products;
