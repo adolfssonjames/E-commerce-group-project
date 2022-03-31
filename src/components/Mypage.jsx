@@ -1,6 +1,7 @@
+
 import React from 'react'
 import { useRef, useState } from "react";
-import { signup, login, logout, useAuth } from "../firebase/firebase.js";
+import { signup, login, logout, useAuth, resetpassword } from "../firebase/firebase.js";
 import Profile from './Profile.jsx';
 
 
@@ -41,6 +42,18 @@ const Mypage = () => {
     setLoading(false);
   }
 
+  async function handleResetPassword() {
+    setLoading(true);
+    try {
+      await resetpassword(emailRef.current.value);
+      alert("password reset sent to email")
+    } catch {
+      alert("Email not found! You need to fill your email adress on the email field :)");
+    } 
+    setLoading(false);
+  
+  }
+
 
   return (
     <div id="main">
@@ -58,6 +71,7 @@ const Mypage = () => {
       <div className='btn-wrapper-div'>
           <button className='account-btn' disabled={ loading } onClick={handleSignup}>Sign Up</button>
           <button className='account-btn' disabled={ loading } onClick={handleLogin}>Log In</button>
+          <button className='account-btn' disabled={ loading } onClick={handleResetPassword}>Forgot Password</button>
       </div>
       
       </>
