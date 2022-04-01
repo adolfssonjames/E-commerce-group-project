@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from 'react-use-cart';
+import { Link } from 'react-router-dom';
 
 const Shoppingcart = () => {
 
@@ -15,8 +16,8 @@ const Shoppingcart = () => {
 
  } = useCart()
  
-
  if (isEmpty) return <h2>Your cart is empty...</h2>
+
 
 
   return (
@@ -56,7 +57,7 @@ const Shoppingcart = () => {
      </div>
 
      <div>
-       <button onClick={emptyCart}>Pay now</button>
+     <button><Link to="/payment"> Payment </Link></button>
      </div>
   </section>
 
