@@ -20,17 +20,20 @@ const {
 
     <Router>
         <div className="App">
+
+          <div id='navbar-container'>
             
               <ul className='navbar-left'>
-                  <button className='navbar-btn'><li> <Link to="/">Home</Link></li></button> 
-                  <button className='navbar-btn'><li> <Link to="/Products">Products</Link></li></button>
-                  <button className='navbar-btn'><li> <Link to="/About">About</Link></li></button> 
+                 <li> <Link to="/" className="link">Home</Link></li>
+                  <li> <Link to="/Products" className="link">Products</Link></li>
+                  <li> <Link to="/About" className="link">About</Link></li> 
               </ul>
                   
               <ul className='navbar-right'>
-                   <button className='navbar-btn'><li> <Link to="/Mypage">My page</Link></li></button> 
-                   <button className='navbar-btn'><li> <Link to="/Shoppingcart">Shoppingcart ({totalItems})</Link></li></button>  
+                   <li> <Link to="/Mypage" className="link">My page</Link></li>
+                   <li> <Link to="/Shoppingcart" className="link">Shoppingcart ({totalItems})</Link></li>  
               </ul>
+          </div>    
 
               <CartProvider>
             

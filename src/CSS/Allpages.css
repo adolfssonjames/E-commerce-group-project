@@ -1,12 +1,31 @@
-.navbar-btn, a, ul {
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
+#navbar-container {
+    background-color: black;
+}
+
+ li,a, ul {
     list-style: none;
-    text-decoration: none;
     margin:5px;
     padding: 5px;
 }
+
+.link {
+    text-decoration: none;
+    color: beige;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:x-large;
+
+}
+
+.link:hover {
+    color: white;
+}
+
 .navbar-right {
     display: inline-flex;
     justify-content: flex-end;
+    
     
 }
 
