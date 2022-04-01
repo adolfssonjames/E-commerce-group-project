@@ -3,31 +3,34 @@ import axios from "axios"
 import React, { useState } from 'react'
 
 
-const CARD_OPTIONS = {
-	iconStyle: "solid",
-	style: {
-		base: {
-			iconColor: "#c4f0ff",
-			color: "#fff",
-			fontWeight: 500,
-			fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-			fontSize: "16px",
-			fontSmoothing: "antialiased",
-			":-webkit-autofill": { color: "#fce883" },
-			"::placeholder": { color: "#87bbfd" }
-		},
-		invalid: {
-			iconColor: "#ffc7ee",
-			color: "#ffc7ee"
-		}
-	}
-}
+
 
 export default function PaymentForm() {
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
-
+    
+    const CARD_OPTIONS = {
+        iconStyle: "solid",
+        style: {
+            base: {
+                iconColor: "#c4f0ff",
+                color: "#000",
+                with: "200px",
+                margin: "0 auto",
+                fontWeight: 500,
+                fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+                fontSize: "16px",
+                fontSmoothing: "antialiased",
+                ":-webkit-autofill": { color: "#fce883" },
+                "::placeholder": { color: "#87bbfd" }
+            },
+            invalid: {
+                iconColor: "#ffc7ee",
+                color: "#ffc7ee"
+            }
+        }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -61,14 +64,43 @@ export default function PaymentForm() {
     return (
         <>
         {!success ? 
+        <div>
         <form onSubmit={handleSubmit}>
-            <fieldset className="FormGroup">
+           
+            <form action="">
+				<div>
+			<label htmlFor="">Name</label>
+			<input type="name" />
+			</div>
+			<div>
+			<label htmlFor="">Address</label>
+			<input type="name" />
+			</div>
+			<div>
+			<label htmlFor="">Stad</label>
+			<input type="name" />
+			</div>
+			<div>
+			<label htmlFor="">Postkod</label>
+			<input type="name" />
+			</div>
+			<div>
+			<label htmlFor="">Kommun</label>
+			<input type="name" />
+			</div>
+			<div>
+			<label htmlFor="">land</label>
+			<input type="name" />
+			</div>
+			</form>
                 <div className="FormRow">
                     <CardElement options={CARD_OPTIONS}/>
                 </div>
-            </fieldset>
+            
+        
             <button>Pay</button>
         </form>
+        </div>
         :
        <div>
            <h2>Kortköp godkänt</h2>

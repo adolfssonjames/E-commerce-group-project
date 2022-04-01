@@ -6,6 +6,7 @@ import Mypage from './components/Mypage';
 import MyAccount from './components/MyAccount';
 import Shoppingcart from './components/Shoppingcart';
 import About from './components/About';
+import StripeContainer from './components/StripeContainer';
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 import { CartProvider, useCart } from "react-use-cart"
 
@@ -40,6 +41,7 @@ const {
                 <Route path="/MyAccount" element={<MyAccount />}></Route>
                 <Route path="/Shoppingcart" element={<Shoppingcart />}></Route>
                 <Route path="/About" element={<About />}></Route>
+                <Route path="/payment" element={<StripeContainer />}></Route>
             </Routes>
             </CartProvider>
         </div>
