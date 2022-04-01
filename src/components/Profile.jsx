@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../CSS/Mypage.css';
 
 
+
 export default function Profile()  {
     const currentUser = useAuth();
     const [photo, setPhoto] = useState (null);
