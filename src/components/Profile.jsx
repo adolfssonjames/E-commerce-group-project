@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAuth, upload } from "../firebase/firebase";
+import { Link } from 'react-router-dom';
 import '../CSS/Mypage.css';
+
 
 
 export default function Profile()  {
@@ -33,6 +35,8 @@ export default function Profile()  {
             <div className='btn-wrapper-div' >
             <input id="file-input" type="file" onChange={handleChange} />
                 <button id='avatar-btn' disabled={loading || !photo} onClick={handleClick}>Upload avatar</button>
+                <button><Link to="/MyAccount"> My Account </Link></button>
+                
             </div>
             <img src={photoURL}
                  alt="avatar"
