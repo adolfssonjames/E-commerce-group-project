@@ -12,14 +12,18 @@
 
 .link {
     text-decoration: none;
-    color: beige;
+    color: rgb(248, 240, 213);
     font-family: 'Josefin Sans', sans-serif;
     font-size:x-large;
 
 }
 
 .link:hover {
-    color: white;
+    color: rgb(255, 194, 64);
+    
+    transition: ease-in 0.4s;
+    transition: ease-out 0.4s;
+    
 }
 
 .navbar-right {
