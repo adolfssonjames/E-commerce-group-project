@@ -1,13 +1,13 @@
-.CartHead {
+.CartHead,
+.CartEmpty {
     margin-top: 30px;
 }
 
 .ShoppingCart {
     width: 90%;
     display: grid;
-    grid-gap: 10px;
     grid-template:
-    "ItemImg, ItemName, ItemPrice, MinusBtn, RemoveBtn"
+    "ItemImg, ItemName, ItemPrice, MinusBtn, PlusBtn, RemoveBtn"
 }
 
 table td {
@@ -39,6 +39,7 @@ table td {
 
 .PayBtn {
     background-color: limegreen; 
+    color: white;
     border: none;
     padding: 10px 20px;
     text-align: center;
