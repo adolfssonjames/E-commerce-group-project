@@ -55,9 +55,13 @@ table td {
 .PayBtn,
 .EmptyBtn,
 .TotalPrice {
-    margin-top: 20px;
+    margin: 10px 0px 20px 0px;
 }
 
+
+.TotalPrice {
+    margin-top: 20px;
+}
 .ItemImg {
     height: 6rem;
     width: 100;
