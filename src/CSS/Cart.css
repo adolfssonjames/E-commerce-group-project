@@ -1,0 +1,65 @@
+.CartHead {
+    margin-top: 30px;
+}
+
+.ShoppingCart {
+    width: 90%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template:
+    "ItemImg, ItemName, ItemPrice, MinusBtn, RemoveBtn"
+}
+
+table td {
+    width: 10%;
+}
+.MinusBtn,
+.PlusBtn {
+    background-color: black; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.RemoveBtn,
+.EmptyBtn {
+    background-color: red; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.PayBtn {
+    background-color: limegreen; 
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.PayLink {
+        text-decoration: none;
+        color: white;
+}
+
+.PayBtn,
+.EmptyBtn,
+.TotalPrice {
+    margin-top: 20px;
+}
+
+.ItemImg {
+    height: 6rem;
+    width: 100;
+}
+
