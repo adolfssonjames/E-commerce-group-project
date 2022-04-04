@@ -3,9 +3,9 @@ import "../CSS/Home.css";
 
 const Home = () => {
   return (
-    <div>
+    <div id="homePageAll">
       <h1>Home</h1>
-      <div id="homePageMain">
+      <div id="homePageMain" class="homePageTextBox">
         <h2>Welcome to the page</h2>
         <p>
           <b>
@@ -18,7 +18,7 @@ const Home = () => {
         </p>
         <img src="https://placeimg.com/400/300/nature" alt="sample image" />
       </div>
-      <div id="homePageSecond">
+      <div id="homePageSecond" class="homePageTextBox">
         <h2>Buy our products</h2>
         <p>
           <b>Our company has</b> Lorem ipsum, dolor sit amet consectetur

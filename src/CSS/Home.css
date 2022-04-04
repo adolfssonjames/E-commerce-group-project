@@ -33,3 +33,15 @@
 #homePageSecond > img {
   grid-area: c;
 }
+#homePageAll {
+  width: 60%;
+  margin: auto;
+}
+.homePageTextBox h2 {
+  align-self: flex-end;
+}
+.homePageTextBox p {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
