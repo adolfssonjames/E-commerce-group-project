@@ -1,9 +1,9 @@
-.CartHead,
 .CartEmpty {
-    padding-top: 30px;
+    padding-top: 15%;
 }
 
 .ShoppingCart {
+    padding-top: 10%;
     width: 90%;
     display: grid;
     grid-template:

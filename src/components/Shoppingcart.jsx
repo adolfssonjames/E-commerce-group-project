@@ -5,12 +5,10 @@ import '../CSS/Cart.css';
 
 const Shoppingcart = () => {
 
-
   const { 
 
     isEmpty,
     items,
-    totalItems,
     cartTotal,
     updateItemQuantity,
     removeItem,
@@ -20,28 +18,25 @@ const Shoppingcart = () => {
  
  if (isEmpty) return <h1 className="CartEmpty">Your cart is empty...</h1>
 
-
  return (
   <section>
 
-  <h1 className='CartHead'>Shopping cart ({totalItems})</h1>
-
   <div className='ShoppingCart'>
 
-  <table>
+   <table>
         <tbody>
             {items.map((cartitem) => {
               return (
 
-              <tr key={cartitem._id} >
+              <tr key={cartitem.id} >
 
-                <td><img className='ItemImg' src={cartitem.productImage}></img></td>
-                <td><h5 className='ItemName'>{cartitem.productName}</h5></td>
+                <td><img className='ItemImg' src={cartitem.image}></img></td>
+                <td><h5 className='ItemName'>{cartitem.name}</h5></td>
                 <td><h5 className='ItemPrice'>${cartitem.price}</h5></td>
                 <td><h5 className='ItemQty'>{cartitem.quantity}</h5></td>
-                <td><button className='MinusBtn' onClick={() => updateItemQuantity(cartitem._id, cartitem.quantity -1)}>-</button></td>
-                <td><button className='PlusBtn' onClick={() => updateItemQuantity(cartitem._id, cartitem.quantity +1)}>+</button></td>
-                <td><button className='RemoveBtn' onClick={() => removeItem(cartitem._id)}>Remove items</button></td>
+                <td><button className='MinusBtn' onClick={() => updateItemQuantity(cartitem.id, cartitem.quantity -1)}>-</button></td>
+                <td><button className='PlusBtn' onClick={() => updateItemQuantity(cartitem.id, cartitem.quantity +1)}>+</button></td>
+                <td><button className='RemoveBtn' onClick={() => removeItem(cartitem.id)}>Remove items</button></td>
               
               </tr>
 
@@ -50,8 +45,7 @@ const Shoppingcart = () => {
 
         </tbody>
   </table>
-
-  </div>
+</div>
     
   <div>
       <h4 className='TotalPrice'>Total Price: ${cartTotal}</h4>
