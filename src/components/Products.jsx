@@ -39,10 +39,9 @@ const Products = () => {
              {products.map((product) => {
                 return (
                   <div key={product.id} item={product} className="product">
-                    <img src={product.image} alt={product.name} width="100" height="100"></img>
-                    <h5>{product.name}</h5>
+                    <img src={product.productImage} alt={product.productName} width="100" height="100"></img>
+                    <h5>{product.productName}</h5>
                     <p className="item-price">${product.price}</p>
-                    <p className="item-desc">{product.desc}</p>
                     <button className="to-cart-btn" onClick={() => addItem(product)}>Add to cart</button>
 
            </div>
