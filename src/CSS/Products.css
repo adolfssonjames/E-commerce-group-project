@@ -1,6 +1,6 @@
 #articles {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 .product {
   border: 1px solid black;

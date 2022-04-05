@@ -5,6 +5,7 @@ import '../CSS/Cart.css';
 
 const Shoppingcart = () => {
 
+
   const { 
 
     isEmpty,
@@ -32,15 +33,15 @@ const Shoppingcart = () => {
             {items.map((cartitem) => {
               return (
 
-              <tr key={cartitem.id}>
+              <tr key={cartitem._id} >
 
-                <td><img className='ItemImg' src={cartitem.image}></img></td>
-                <td><h5 className='ItemName'>{cartitem.name}</h5></td>
+                <td><img className='ItemImg' src={cartitem.productImage}></img></td>
+                <td><h5 className='ItemName'>{cartitem.productName}</h5></td>
                 <td><h5 className='ItemPrice'>${cartitem.price}</h5></td>
                 <td><h5 className='ItemQty'>{cartitem.quantity}</h5></td>
-                <td><button className='MinusBtn' onClick={() => updateItemQuantity(cartitem.id, cartitem.quantity -1)}>-</button></td>
-                <td><button className='PlusBtn' onClick={() => updateItemQuantity(cartitem.id, cartitem.quantity +1)}>+</button></td>
-                <td><button className='RemoveBtn' onClick={() => removeItem(cartitem.id)}>Remove items</button></td>
+                <td><button className='MinusBtn' onClick={() => updateItemQuantity(cartitem._id, cartitem.quantity -1)}>-</button></td>
+                <td><button className='PlusBtn' onClick={() => updateItemQuantity(cartitem._id, cartitem.quantity +1)}>+</button></td>
+                <td><button className='RemoveBtn' onClick={() => removeItem(cartitem._id)}>Remove items</button></td>
               
               </tr>
 
