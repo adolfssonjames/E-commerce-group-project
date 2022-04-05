@@ -57,6 +57,20 @@ const data = {
             desc: "A beautiful bonsai cherry tree with gnarled stem in fiberglass.",
             price: 4599,
             image: img7
+        },
+        {
+            id: 8,
+            name: "Bonsai Geisha Ki Cherry (90cm)",
+            desc: "A beautiful bonsai cherry tree with gnarled stem in fiberglass.",
+            price: 4599,
+            image: img7
+        },
+        {
+            id: 9,
+            name: "Bonsai Geisha Ki Cherry (90cm)",
+            desc: "A beautiful bonsai cherry tree with gnarled stem in fiberglass.",
+            price: 4599,
+            image: img7
         }
     ]
 }
