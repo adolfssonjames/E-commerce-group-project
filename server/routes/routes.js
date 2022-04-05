@@ -2,6 +2,7 @@ const express = require ('express');
 const productSchema = require('../mongoose_schemas/productSchema');
 const router = express.Router();
 const productModel = require('../mongoose_schemas/productSchema');
+const OrderHistorySchema = require('../mongoose_schemas/orderHistorySchema')
 const multer = require('multer');
 const multerStorage = multer.diskStorage({
     destination: function(request, file, callback){
@@ -45,5 +46,24 @@ router.get('/get', (request, response) =>{
     .catch(error => response.json(error))
 
 })
+
+router.post('/newOrder', (request, response) =>{
+
+    let newOrder = new OrderHistorySchema({
+        product: request.body.product,
+        price: request.body.price,
+        totalPrice: request.body.totalPrice,
+        currentLoggedInUser: request.body.currentLoggedInUser
+    })
+
+    newOrder.save()
+    .then(data => {
+        response.json(data)
+    })
+    .catch(error => response.json(error))
+
+})
+
+
 
 module.exports = router;
