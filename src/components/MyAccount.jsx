@@ -5,6 +5,7 @@ import {Card, Form, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {auth} from '../firebase/firebase'
 import {onAuthStateChanged, updateEmail} from 'firebase/auth'
+import { Link } from 'react-router-dom';
 
 
 function MyAccount() {
@@ -52,9 +53,14 @@ function MyAccount() {
   
     return (
     <>
+    
         <Card>
             <Card.Body>
-                <h2 className='text-center mb-4'>My Account</h2>
+                
+                <Link to="/MyPage"><button className="back-btn"> Back </button> </Link>
+                <h2 className='text-center'>My Account</h2>
+                
+               
                 <Form>
                     <Form.Group>
                         <Form.Label>Current Email</Form.Label>
