@@ -2,6 +2,8 @@
 
 #navbar-container {
     background-color: black;
+    position: fixed;
+    width:100%;
 }
 
  li,a, ul {

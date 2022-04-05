@@ -47,7 +47,7 @@ const Mypage = () => {
     setLoading(true);
     try {
       await resetpassword(emailRef.current.value);
-      alert("password reset sent to email")
+      alert("Password reset sent to your email")
     } catch {
       alert("Email not found! You need to fill your email adress on the email field :)");
     } 
@@ -63,7 +63,9 @@ const Mypage = () => {
   };
 
   return (
-    <div id="main" style={myStyle}>
+
+  
+    <div id="main"style={myStyle}>
      
       {!currentUser &&    
       <>
@@ -76,7 +78,7 @@ const Mypage = () => {
             <label className='label-login' htmlFor="password">Password</label>
             <input className="input-field" ref={passwordRef} type="password" placeholder="Password" />
           </div>
-              <button className='login-btn' disabled={ loading } onClick={handleLogin}>Log In</button>
+              <button className='login-btn' disabled={ loading } onClick={handleLogin}>Login</button>
           <div className='btn-wrapper-mypage'>
               <button className='account-btn' disabled={ loading } onClick={handleSignup}>Sign Up</button>
               <button className='account-btn' disabled={ loading } onClick={handleResetPassword}>Forgot Password</button>
@@ -91,15 +93,8 @@ const Mypage = () => {
       {currentUser &&
        <> 
        <div id='logged-in-div'>
-          <h1 id='welcome-user'>Welcome { currentUser?.email }</h1>
-          <div id='status-wrapper'>
-          <div id='login-status-txt'>You are logged in as: </div>
-          <h4 id='login-status-user'> { currentUser?.email } </h4>
-          </div>
           <Profile />
-          <div className='btn-wrapper-div'>
-              <button className='account-btn' disabled={ loading || !currentUser } onClick={handleLogout}>Log Out</button>
-          </div>
+          <button id='logout-btn' disabled={ loading || !currentUser } onClick={handleLogout}>Logout</button>
        </div>
       </>
       }
