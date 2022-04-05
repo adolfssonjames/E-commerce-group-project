@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {auth} from '../firebase/firebase'
 import {onAuthStateChanged, updateEmail} from 'firebase/auth'
 import { Link } from 'react-router-dom';
+import { useCart } from 'react-use-cart';
 
 
 function MyAccount() {
@@ -20,13 +21,13 @@ function MyAccount() {
     const [newEmailadress, setNewEmailadress] = useState('')
     const [currentErrorMessage, setCurrentErrorMessage] = useState('')
 
-    
 
     onAuthStateChanged (auth, (currentUser) => {
         setCurrentLoggedInUser(currentUser);
     })
 
-
+    const { items } = useCart();
+    console.log(items)
 
 
     const changeEmailHandler = () => {
