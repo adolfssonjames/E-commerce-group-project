@@ -19,6 +19,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    id: {
+        type: Number,
+        required: true
+    },
     date: {
         type: Date,
         immutable: true,

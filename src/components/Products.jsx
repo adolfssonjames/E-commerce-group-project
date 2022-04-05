@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../CSS/Products.css";
-import data from "./ProductData";
+//import data from "./ProductData";
 import { useCart } from "react-use-cart";
-//import axios from "axios";
+import axios from "axios";
 
 
 const Products = () => {
   const { addItem } = useCart();
   
-  /*
+  
   const [products, setProducts] = useState([])
 
 
@@ -24,7 +24,7 @@ const Products = () => {
   useEffect(() => {
     fetchItems();
   }, [])
-  */
+  
 
   return (
     <div>
@@ -36,7 +36,7 @@ const Products = () => {
       </section>
       <div id="articles">
 
-             {data.Items.map((product) => {
+             {products.map((product) => {
                 return (
                   <div key={product.id} item={product} className="product">
                     <img src={product.image} alt={product.name} width="100" height="100"></img>

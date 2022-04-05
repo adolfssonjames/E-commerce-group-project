@@ -24,7 +24,8 @@ router.post('/post', multerImageUpload.single('productImage'), (request, respons
         productName: request.body.productName,
         description: request.body.description, 
         price: request.body.price,
-        productImage: request.file.path
+        productImage: request.file.path,
+        id: request.body.id
     })
 
     newProduct.save()
