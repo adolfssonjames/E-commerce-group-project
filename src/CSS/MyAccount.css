@@ -5,3 +5,25 @@
 .test td{
     width: 50%;
 }
+
+.back-btn {
+    float: left;
+    width: 5%;
+    margin: 0 auto;
+    font-weight:400;
+    border-radius: 2px;
+    height:30px;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2.5px solid rgb(0, 0, 0);
+}
+.back-btn:hover {
+    background-color: #51900078;
+    color: white;
+    transition: ease-in 0.2s;
+ }
+
+ .myaccount-wrapper {
+     width: 300px;
+ }
+ 

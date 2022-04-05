@@ -31,16 +31,27 @@ export default function Profile()  {
     
 
     return(
-        <div className="fields">
-            <div className='btn-wrapper-div' >
-            <input id="file-input" type="file" onChange={handleChange} />
-                <button id='avatar-btn' disabled={loading || !photo} onClick={handleClick}>Upload avatar</button>
-                <button><Link to="/MyAccount"> My Account </Link></button>
+        <div className="profile-main">
+          <h1 id='welcome-user'>Welcome { currentUser?.email }</h1>
+          <div className="profile">
+            <div className='wrapper-div'>
+                <img src={photoURL}
+                     alt="avatar"
+                    id="user-avatar"/>
+                <h4 id='login-status-user'> { currentUser?.email } </h4>
                 
+                    <div className="upload-wrapper">
+                       <input id="file-input" type="file"  onChange={handleChange} />
+                        <button id='avatar-btn' disabled={loading || !photo} onClick={handleClick}>Upload avatar</button>
+                    </div>
+                    <Link to="/MyAccount"><button className="my-acc-btn"> My Account</button> </Link>
             </div>
-            <img src={photoURL}
-                 alt="avatar"
-                 id="user-avatar"/>
+                
+           
+           
+          </div>
+            
+                
         </div>
 
 
