@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 function MyAccount() {
   
     
-
     const emailRef = useRef()
     const passwordRef = useRef()
     const [currentLoggedInUser, setCurrentLoggedInUser] = useState({})
@@ -19,7 +18,7 @@ function MyAccount() {
     const [changeEmailButtonText, setChangeEmailButtonText] = useState('Change Email')
     const [changeEmailButtonColor, setChangeEmailButtonColor] = useState({})
     const [newEmailadress, setNewEmailadress] = useState('')
-    console.log(newEmailadress)
+    const [currentErrorMessage, setCurrentErrorMessage] = useState('')
 
     
 
@@ -37,8 +36,17 @@ function MyAccount() {
         setChangeEmailButtonColor ({backgroundColor: 'orange'});
         if(changeEmailButtonText == 'Save new email'){
             updateEmail(auth.currentUser, newEmailadress)
-            setChangeEmailButtonText ('new email saved!');
-            setChangeEmailButtonColor ({backgroundColor: 'green'});
+            .then(() => {
+                setChangeEmailButtonText ('new email saved!');
+                setChangeEmailButtonColor ({backgroundColor: 'green'});
+            })
+            .catch((error) => {
+                let errorName = JSON.stringify(error.name + ': ')
+                errorName = errorName.slice(1, errorName.length-1)
+                let errorMessage = JSON.stringify(error.code)
+                errorMessage = errorMessage.slice(1, errorMessage.length-1)
+                setCurrentErrorMessage(errorName + errorMessage)
+            })
         }
     }
 
@@ -71,7 +79,8 @@ function MyAccount() {
                             ref={emailRef}
                             required>
                         </Form.Control>
-                        <Button id='test' style={changeEmailButtonColor} onClick={changeEmailHandler} variant="primary">{changeEmailButtonText}</Button>
+                        <Button style={changeEmailButtonColor} onClick={changeEmailHandler} variant="primary">{changeEmailButtonText}</Button>
+                        <p>{currentErrorMessage}</p>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Current Password</Form.Label>
