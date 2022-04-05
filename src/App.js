@@ -8,13 +8,18 @@ import Shoppingcart from './components/Shoppingcart';
 import About from './components/About';
 import StripeContainer from './components/StripeContainer';
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
-import { CartProvider } from "react-use-cart"
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart"
+import { useCart } from "react-use-cart"
 
 function App() {
 
-  return (
+  const { 
 
+    totalItems
+
+ } = useCart()
+
+  return (
     <Router>
         <div className="App">
 
@@ -27,12 +32,9 @@ function App() {
               </ul>    
               <ul className='navbar-right'>
                    <li> <Link to="/Mypage" className="link">My page</Link></li>
-                   <li> <Link to="/Shoppingcart" className="link"><ShoppingCartIcon /></Link></li>  
+                   <li> <Link to="/Shoppingcart" className="link"><ShoppingCartIcon />{totalItems}</Link></li>  
               </ul>
           </div>    
-
-              <CartProvider>
-            
             <Routes>
                 <Route exact path="/" element={<Home />}></Route>
                 <Route path="/Products" element={<Products />}></Route>
@@ -42,9 +44,9 @@ function App() {
                 <Route path="/About" element={<About />}></Route>
                 <Route path="/payment" element={<StripeContainer />}></Route>
             </Routes>
-            </CartProvider>
         </div>
     </Router>
+  
   );
 }
 
