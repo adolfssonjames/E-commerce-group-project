@@ -134,6 +134,7 @@ h3 {
     border-radius: 2px;
     font-weight:400;
     margin-top:80px;
+    font-size: larger;
 }
 #logout-btn:hover {
     background-color: #51900078;
@@ -170,6 +171,7 @@ h3 {
     border: 2.5px solid rgb(0, 0, 0);
     border-radius: 2px;
     font-weight:400;
+    font-size: larger;
 }
 .my-acc-btn:hover {
     background-color: #51900078;
@@ -186,6 +188,7 @@ h3 {
     border-radius: 2px;
     font-weight:400;
     cursor: pointer;
+    font-size: large;
 }
 #avatar-btn:hover {
     background-color: #51900078;
