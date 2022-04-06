@@ -33,7 +33,7 @@ const Shoppingcart = () => {
                 <td><img className='ItemImg' src={cartitem.productImage}></img></td>
                 <td><h5 className='ItemName'>{cartitem.productName}</h5></td>
                 <td><h5 className='ItemPrice'>${cartitem.price}</h5></td>
-                <td><h5 className='ItemQty'>{cartitem.quantity}</h5></td>
+                <td><h5 className='ItemQty'>x{cartitem.quantity}</h5></td>
                 <td><button className='MinusBtn' onClick={() => updateItemQuantity(cartitem.id, cartitem.quantity -1)}>-</button></td>
                 <td><button className='PlusBtn' onClick={() => updateItemQuantity(cartitem.id, cartitem.quantity +1)}>+</button></td>
                 <td><button className='RemoveBtn' onClick={() => removeItem(cartitem.id)}>Remove items</button></td>
