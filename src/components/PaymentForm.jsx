@@ -1,10 +1,12 @@
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
+import { CardCvcElement, CardElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios"
 import React, { useState } from 'react'
-import { useCart } from 'react-use-cart';
+import { CartProvider, useCart } from 'react-use-cart';
 import '../CSS/Payment.css';
+import { Link } from 'react-router-dom';
 import {auth} from '../firebase/firebase'
 import {onAuthStateChanged} from 'firebase/auth'
+import { Card, CardImg } from "react-bootstrap";
 
 
 export default function PaymentForm() {
@@ -14,7 +16,7 @@ export default function PaymentForm() {
 
     const [loggedInUser, setCurrentLoggedInUser] = useState({})
 
-// const { items, cartTotal } = useCart();
+    const { items, cartTotal, emptyCart} = useCart();
 
     onAuthStateChanged (auth, (currentUser) => {
         setCurrentLoggedInUser(currentUser);
@@ -77,30 +79,36 @@ export default function PaymentForm() {
     
     <div className="container">
         <h1>Checkout</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={emptyCart}>
    
                 <table>
         <tbody>
-            {items.map((cartitem) => {
+            {items.map((orderitem) => {
               return (
-              <tr key={cartitem.id} >
-                <td><img className='ItemImg' src={cartitem.productImage}></img></td>
-                <td><h5 className='ItemName'>{cartitem.productName}</h5></td>
-                <td><h5 className='ItemPrice'>${cartitem.price}</h5></td>
-                <td><h5 className='ItemQty'>x{cartitem.quantity}</h5></td>
+              <tr key={orderitem.id} >
+                <td><img src={orderitem.image} style={{height:"6rem"}}></img></td>
+                <td><h5 >{orderitem.name}</h5></td>
+                <td><h5 >${orderitem.price}</h5></td>
+                <td><h5 >x{orderitem.quantity}</h5></td>
               </tr>
                 )
             })}
         </tbody>
   </table>
-        <h2>You will be purschased ${cartTotal}</h2>
+        <h4>Please fill in your payment information:</h4>
                 
                 <div className="FormRow">
-                    <CardElement/>
+                
+                <Card>
+                    <CardNumberElement/>
+                    <CardExpiryElement/>
+                    <CardCvcElement/>
+                </Card>
+            
                 </div>
 
         
-            <button>Pay</button>
+            <Link to="/order"><button onClick={postOrderHistory}>Pay ${cartTotal}</button></Link>
         </form>
         </div>
         
