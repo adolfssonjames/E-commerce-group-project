@@ -44,6 +44,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cors())
 app.use('/', routesURLs);
+app.use('/productImages', express.static('productImages'))
 
 
 app.listen(process.env.PORT || 4000, () => {

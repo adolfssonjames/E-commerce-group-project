@@ -6,7 +6,7 @@ const OrderHistorySchema = require('../mongoose_schemas/orderHistorySchema')
 const multer = require('multer');
 const multerStorage = multer.diskStorage({
     destination: function(request, file, callback){
-        callback(null, './productImages/')
+        callback(null, '/productImages/')
     },
     filename: function(request, file, callback){
         console.log(file)
@@ -47,6 +47,7 @@ router.get('/get', (request, response) =>{
     .catch(error => response.json(error))
 
 })
+
 
 router.post('/newOrder', (request, response) =>{
 

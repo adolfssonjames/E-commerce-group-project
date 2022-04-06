@@ -1,5 +1,5 @@
 .CartEmpty {
-    padding-top: 15%;
+    padding: 15%;
 }
 
 .ShoppingCart {
@@ -12,6 +12,7 @@
 
 table td {
     width: 10%;
+    padding: 20px;
 }
 .MinusBtn,
 .PlusBtn {
@@ -58,7 +59,6 @@ table td {
 .TotalPrice {
     margin: 10px 0px 20px 0px;
 }
-
 
 .TotalPrice {
     margin-top: 20px;
