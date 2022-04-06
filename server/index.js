@@ -47,6 +47,6 @@ app.use('/', routesURLs);
 app.use('/productImages', express.static('productImages'))
 
 
-app.listen(process.env.PORT || 5000, () => {
-	console.log("Sever is listening on port 5000")
+app.listen(process.env.PORT || 4000, () => {
+	console.log("Sever is listening on port 4000")
 })
