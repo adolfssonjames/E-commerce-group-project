@@ -8,14 +8,14 @@ import {onAuthStateChanged} from 'firebase/auth'
 
 
 export default function PaymentForm() {
-    const {cartTotal} = useCart()
+    const {items, cartTotal} = useCart()
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
 
     const [loggedInUser, setCurrentLoggedInUser] = useState({})
 
-    const { items, cartTotal } = useCart();
+// const { items, cartTotal } = useCart();
 
     onAuthStateChanged (auth, (currentUser) => {
         setCurrentLoggedInUser(currentUser);

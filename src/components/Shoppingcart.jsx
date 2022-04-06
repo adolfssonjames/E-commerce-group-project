@@ -12,7 +12,7 @@ const Shoppingcart = () => {
     cartTotal,
     updateItemQuantity,
     removeItem,
-    emptyCart
+    emptyCart,
 
  } = useCart()
  
