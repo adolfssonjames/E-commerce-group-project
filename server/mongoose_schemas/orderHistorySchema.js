@@ -3,19 +3,7 @@ const mongoose = require('mongoose');
 const OrderHistorySchema = new mongoose.Schema({
 
     
-    product: {
-        
-        productName: {
-        type: String,
-        required: true,
-        },
-
-        price: {
-            type: Number,
-            required: true
-        },
-    
-    },
+    product: [{}],
     totalPrice: {
         type: Number,
         required: true
