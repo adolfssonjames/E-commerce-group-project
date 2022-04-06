@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "../CSS/Products.css";
-//import data from "./ProductData";
+import data from "./ProductData";
 import { useCart } from "react-use-cart";
-import axios from "axios";
+//import axios from "axios";
 
 
 const Products = () => {
   const { addItem } = useCart();
   
-  
+/*  
   const [products, setProducts] = useState([])
 
 
   const fetchItems = async () => {
       try {
-          const res = await axios.get("http://localhost:5000/get")
+          const res = await axios.get("http://localhost:4000/get")
           setProducts(res.data)
       } catch (error) {
           console.log(error)
@@ -24,6 +24,7 @@ const Products = () => {
   useEffect(() => {
     fetchItems();
   }, [])
+  */
   
 
   return (
@@ -36,11 +37,11 @@ const Products = () => {
       </section>
       <div id="articles">
 
-             {products.map((product) => {
+             {data.Items.map((product) => {
                 return (
                   <div key={product.id} item={product} className="product">
-                    <img src={product.productImage} alt={product.productName} width="100" height="100"></img>
-                    <h5>{product.productName}</h5>
+                    <img src={product.image} alt={product.name} width="100" height="100"></img>
+                    <h5>{product.name}</h5>
                     <p className="item-price">${product.price}</p>
                     <button className="to-cart-btn" onClick={() => addItem(product)}>Add to cart</button>
 

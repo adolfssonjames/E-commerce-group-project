@@ -8,14 +8,13 @@ import {onAuthStateChanged} from 'firebase/auth'
 
 
 export default function PaymentForm() {
-  
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
 
     const [loggedInUser, setCurrentLoggedInUser] = useState({})
 
-    const { items, cartTotal } = useCart();
+// const { items, cartTotal } = useCart();
 
     onAuthStateChanged (auth, (currentUser) => {
         setCurrentLoggedInUser(currentUser);
@@ -64,7 +63,7 @@ export default function PaymentForm() {
             product, totalPrice, currentLoggedInUser
         }
 
-        await axios.post ('http://localhost:5000/newOrder', newOrder)
+        await axios.post ('http://localhost:4000/newOrder', newOrder)
         .then(response => {
             console.log(response)
         })

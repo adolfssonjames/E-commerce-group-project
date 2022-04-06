@@ -12,7 +12,7 @@ const Shoppingcart = () => {
     cartTotal,
     updateItemQuantity,
     removeItem,
-    emptyCart
+    emptyCart,
 
  } = useCart()
  
@@ -30,8 +30,8 @@ const Shoppingcart = () => {
 
               <tr key={cartitem.id} >
 
-                <td><img className='ItemImg' src={cartitem.productImage}></img></td>
-                <td><h5 className='ItemName'>{cartitem.productName}</h5></td>
+                <td><img src={cartitem.image} style={{height:"6rem"}}></img></td>
+                <td><h5 className='ItemName'>{cartitem.name}</h5></td>
                 <td><h5 className='ItemPrice'>${cartitem.price}</h5></td>
                 <td><h5 className='ItemQty'>x{cartitem.quantity}</h5></td>
                 <td><button className='MinusBtn' onClick={() => updateItemQuantity(cartitem.id, cartitem.quantity -1)}>-</button></td>

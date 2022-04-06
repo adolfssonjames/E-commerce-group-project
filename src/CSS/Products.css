@@ -36,20 +36,10 @@ h2 {
   border-radius: 8px;
 }
 
-/*
-.product:hover {
-  transition: ease-out 0.4s;
-  transition: ease-in 0.4s;
-  box-shadow: 0px 2px 2px 4px rgba(59, 186, 0, 0.2);
-  width: 31%;
-  height:310px;
-}
-*/
-
-
 .to-cart-btn{
   border-radius: 4px;
   height:40px;
+  color: black;
   background-color: rgba(0, 0, 0, 0);
   border: 2.5px solid rgb(0, 0, 0);
   border-radius: 2px;
