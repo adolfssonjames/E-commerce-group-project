@@ -16,6 +16,7 @@
 }
 #homePageMain > img {
   grid-area: c;
+  border-radius:  0px 40px;
 }
 #homePageSecond {
   display: grid;
@@ -23,16 +24,25 @@
     "c a"
     "c b";
   background-color: mistyrose;
-  border-radius: 40px;
+  border-radius: 0px 0px 40px 40px;
 }
-#homePageSecond > h2 {
+#homePageSecond:hover {
+  transition: ease-in 0.4s;
+ background-color: rgba(0, 0, 0, 0.115);
+ box-shadow: 0px 0px 6px 3px #b0b0b0;
+ border-radius: 0px 0px 40px 40px;
+}
+
+h2, a {
   grid-area: a;
+ text-decoration: none;
 }
-#homePageSecond > p {
+#homePageSecond > p, a {
   grid-area: b;
 }
 #homePageSecond > img {
   grid-area: c;
+  border-radius: 0px 40px 0px 40px;
 }
 #homePageAll {
   width: 60%;
