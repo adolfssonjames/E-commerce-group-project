@@ -6,10 +6,10 @@ import Mypage from './components/Mypage';
 import MyAccount from './components/MyAccount';
 import Shoppingcart from './components/Shoppingcart';
 import About from './components/About';
-import StripeContainer from './components/StripeContainer';
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart"
 import { useCart } from "react-use-cart"
+import StripeContainer from './components/StripeContainer';
 
 function App() {
 
@@ -42,7 +42,7 @@ function App() {
                 <Route path="/MyAccount" element={<MyAccount />}></Route>
                 <Route path="/Shoppingcart" element={<Shoppingcart />}></Route>
                 <Route path="/About" element={<About />}></Route>
-                <Route path="/payment" element={<StripeContainer />}></Route>
+                <Route path="/checkout" element={<StripeContainer />}></Route>
             </Routes>
         </div>
     </Router>

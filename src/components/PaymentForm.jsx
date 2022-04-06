@@ -1,36 +1,18 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios"
 import React, { useState } from 'react'
+import { useCart } from 'react-use-cart';
+import '../CSS/Payment.css';
 
 
 
 
 export default function PaymentForm() {
+    const {cartTotal} = useCart()
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
-    
-    const CARD_OPTIONS = {
-        iconStyle: "solid",
-        style: {
-            base: {
-                iconColor: "#c4f0ff",
-                color: "#000",
-                with: "200px",
-                margin: "0 auto",
-                fontWeight: 500,
-                fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-                fontSize: "16px",
-                fontSmoothing: "antialiased",
-                ":-webkit-autofill": { color: "#fce883" },
-                "::placeholder": { color: "#87bbfd" }
-            },
-            invalid: {
-                iconColor: "#ffc7ee",
-                color: "#ffc7ee"
-            }
-        }
-    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -43,8 +25,8 @@ export default function PaymentForm() {
     if(!error) {
         try {
             const {id} = paymentMethod
-            const response = await axios.post("http://localhost:4000/payment", {
-                amount: 1000,
+            const response = await axios.post("http://localhost:4000/checkout", {
+                amount: cartTotal,
                 id
             })
 
@@ -54,7 +36,7 @@ export default function PaymentForm() {
             }
 
         } catch (error) {
-            console.log("Error", error)
+            console.log("FUNKAR INTE", error)
         }
     } else {
         console.log(error.message)
@@ -62,51 +44,23 @@ export default function PaymentForm() {
 }
 
     return (
-        <>
-        {!success ? 
-        <div>
+    
+    <div className="container">
+        <h1>Checkout</h1>
         <form onSubmit={handleSubmit}>
-           
-            <form action="">
-				<div>
-			<label htmlFor="">Name</label>
-			<input type="name" />
-			</div>
-			<div>
-			<label htmlFor="">Address</label>
-			<input type="name" />
-			</div>
-			<div>
-			<label htmlFor="">Stad</label>
-			<input type="name" />
-			</div>
-			<div>
-			<label htmlFor="">Postkod</label>
-			<input type="name" />
-			</div>
-			<div>
-			<label htmlFor="">Kommun</label>
-			<input type="name" />
-			</div>
-			<div>
-			<label htmlFor="">land</label>
-			<input type="name" />
-			</div>
-			</form>
-                <div className="FormRow">
-                    <CardElement options={CARD_OPTIONS}/>
+   
+                <div>
+                    <h2>You will be purschased ${cartTotal}</h2>
                 </div>
-            
+                <div className="FormRow">
+                    <CardElement/>
+                </div>
+
         
             <button>Pay</button>
         </form>
         </div>
-        :
-       <div>
-           <h2>Kortköp godkänt</h2>
-       </div> 
-        }
-            
-        </>
+        
+
     )
 }
