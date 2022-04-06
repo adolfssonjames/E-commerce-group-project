@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useRef } from 'react';
-import '../CSS/MyAccount.css';
 import {Card, Form, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '../CSS/MyAccount.css';
 import {auth} from '../firebase/firebase'
 import {onAuthStateChanged, updateEmail} from 'firebase/auth'
 import { Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
+
 
 
 function MyAccount() {
@@ -52,19 +53,14 @@ function MyAccount() {
     }
 
 
-
-
-
-
-
   
   
   
     return (
     <>
     
-        <Card>
-            <Card.Body>
+        <Card className='form-main'>
+            <Card.Body className='form-body'>
                 
                 <Link to="/MyPage"><button className="back-btn"> Back </button> </Link>
                 <h2 className='text-center'>My Account</h2>
@@ -72,20 +68,21 @@ function MyAccount() {
                
                 <Form>
                     <Form.Group>
-                        <Form.Label>Current Email</Form.Label>
+                        <Form.Label className='label' >Current Email</Form.Label>
                         <Form.Control
+                            className='input'
                             onChange={(e) => setNewEmailadress(e.target.value)}
                             placeholder={currentLoggedInUser?.email}
                             disabled={emailFieldDisabled} type='email'
                             ref={emailRef}
                             required>
                         </Form.Control>
-                        <Button style={changeEmailButtonColor} onClick={changeEmailHandler} variant="primary">{changeEmailButtonText}</Button>
+                        <Button className='w-50' style={changeEmailButtonColor} onClick={changeEmailHandler} variant="primary">{changeEmailButtonText}</Button>
                         <p>{currentErrorMessage}</p>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Current Password</Form.Label>
-                        <Form.Control type='password' ref={passwordRef} required></Form.Control>
+                        <Form.Control className='input' type='password' ref={passwordRef} required></Form.Control>
                     </Form.Group>
                     <Button className='w-50' type='submit'>Submit</Button>
                 </Form>
