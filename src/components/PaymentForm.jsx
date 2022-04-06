@@ -88,7 +88,7 @@ export default function PaymentForm() {
             product, totalPrice, currentLoggedInUser
         }
 
-        await axios.post ('http://localhost:5000/newOrder', newOrder)
+        await axios.post ('http://localhost:4000/newOrder', newOrder)
         .then(response => {
             console.log(response)
         })

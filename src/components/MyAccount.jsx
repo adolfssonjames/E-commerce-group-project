@@ -63,7 +63,7 @@ function MyAccount() {
         if(Object.keys(currentLoggedInUser).length === 0){
              console.log('Wait for currentLoggedInUser to be populated')
         }else{
-            await axios.post ('http://localhost:5000/getOrderHistory', currentLoggedInUser)
+            await axios.post ('http://localhost:4000/getOrderHistory', currentLoggedInUser)
         .then(response => {
             setOrderHistory(response)
         })
@@ -76,11 +76,6 @@ function MyAccount() {
 
 
 
-
-
-  
-  
-  
     return (
     <>
     
@@ -89,7 +84,13 @@ function MyAccount() {
                 
                 <Link to="/MyPage"><button className="back-btn"> Back </button> </Link>
                 <h2 className='text-center'>My Account</h2>
-                
+                <table className='.table'>
+            <tbody>
+            <tr>
+                <th onClick={getOrderHistory}>Show orders</th>
+            </tr>
+            </tbody>
+        </table>
                
                 <Form>
                     <Form.Group>
@@ -113,36 +114,9 @@ function MyAccount() {
                 </Form>
             </Card.Body>
         </Card>
-        <table className='.table'>
-            <tbody>
-            <tr>
-                <th onClick={getOrderHistory}>test</th>
-            </tr>
-            </tbody>
-        </table>
-    
     </>
     
   )
 }
-
-//style={{backgroundColor: 'black'}}
-
-/*<div>
-        <form className='test'>
-            <label htmlFor="updateEmailInputField">email:</label>
-            <input type="text" id="updateEmailInputField"/>
-            <button>update email</button>
-            <label htmlFor="updatePasswordInputField">password: </label>
-            <input type="text" id="updatePasswordInputField"/>
-            <button>update password</button>
-        </form>
-
-        <table>
-            <tr>
-                <th>Orders</th>
-            </tr>
-        </table>
-    </div>*/
 
 export default MyAccount
