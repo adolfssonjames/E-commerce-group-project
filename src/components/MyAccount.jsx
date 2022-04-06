@@ -22,9 +22,8 @@ function MyAccount() {
     const [changeEmailButtonColor, setChangeEmailButtonColor] = useState({});
     const [newEmailadress, setNewEmailadress] = useState('');
     const [currentErrorMessage, setCurrentErrorMessage] = useState('');
-    const [orderHistory, setOrderHistory] = useState({});
+    const [orderHistory, setOrderHistory] = useState([{}]);
     console.log(orderHistory)
-
 
 
     onAuthStateChanged (auth, (currentUser) => {
@@ -75,15 +74,15 @@ function MyAccount() {
     
 
 
-
     return (
     <>
-    
+        
         <Card className='form-main'>
             <Card.Body className='form-body'>
                 
                 <Link to="/MyPage"><button className="back-btn"> Back </button> </Link>
                 <h2 className='text-center'>My Account</h2>
+                
                 <table className='.table'>
             <tbody>
             <tr>
