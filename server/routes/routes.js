@@ -74,22 +74,6 @@ router.post('/newOrder', (request, response) =>{
             response.json(data)
         })
         .catch(error => response.json(error))
-    
-
-    //const matchUser = await signUpTemplateCopy.findOne({username});
-
-    /*if(matchUser){
-        
-            const isPasswordVerified = await bcrypt.compare(password, matchUser.password)
-            
-            if(isPasswordVerified){
-                response.json(matchUser)
-            }else{
-                response.json('Wrong password')
-            };
-    }else{
-        (response.json('User not found'));
-    };*/
 });
 
 
