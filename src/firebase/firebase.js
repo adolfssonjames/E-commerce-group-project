@@ -64,7 +64,7 @@ export async function upload(file, currentUser, setLoading) {
   
     setLoading(true);
     
-    const snapshot = await uploadBytes(fileRef, file);
+    const myphoto = await uploadBytes(fileRef, file);
     const photoURL = await getDownloadURL(fileRef);
   
     updateProfile(currentUser, {photoURL});
