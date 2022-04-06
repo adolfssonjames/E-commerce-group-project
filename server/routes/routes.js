@@ -17,7 +17,7 @@ const multerImageUpload = multer({storage: multerStorage})
 
 
 
-
+// Add new product including product image
 router.post('/post', multerImageUpload.single('productImage'), (request, response) =>{
 
     let newProduct = new productModel({
@@ -36,7 +36,7 @@ router.post('/post', multerImageUpload.single('productImage'), (request, respons
 
 })
 
-
+// Get all products
 router.get('/get', (request, response) =>{
 
     productModel.find()
@@ -45,10 +45,10 @@ router.get('/get', (request, response) =>{
         response.json(data)
     })
     .catch(error => response.json(error))
-
 })
 
 
+// Create new order history after purchase
 router.post('/newOrder', (request, response) =>{
 
     let newOrder = new OrderHistorySchema({
@@ -65,6 +65,32 @@ router.post('/newOrder', (request, response) =>{
     .catch(error => response.json(error))
 
 })
+
+// Get order history by user
+    router.post('/getOrderHistory', async (request, response) =>{
+        const currentLoggedInUser = request.body.email;
+        const test = await OrderHistorySchema.find({currentLoggedInUser})
+        .then(data => {
+            response.json(data)
+        })
+        .catch(error => response.json(error))
+    
+
+    //const matchUser = await signUpTemplateCopy.findOne({username});
+
+    /*if(matchUser){
+        
+            const isPasswordVerified = await bcrypt.compare(password, matchUser.password)
+            
+            if(isPasswordVerified){
+                response.json(matchUser)
+            }else{
+                response.json('Wrong password')
+            };
+    }else{
+        (response.json('User not found'));
+    };*/
+});
 
 
 
