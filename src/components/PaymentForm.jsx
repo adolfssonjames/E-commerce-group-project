@@ -22,30 +22,6 @@ export default function PaymentForm() {
     })
     
 
-    
-    const CARD_OPTIONS = {
-        iconStyle: "solid",
-        style: {
-            base: {
-                iconColor: "#c4f0ff",
-                color: "#000",
-                with: "200px",
-                margin: "0 auto",
-                fontWeight: 500,
-                fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-                fontSize: "16px",
-                fontSmoothing: "antialiased",
-                ":-webkit-autofill": { color: "#fce883" },
-                "::placeholder": { color: "#87bbfd" }
-            },
-            invalid: {
-                iconColor: "#ffc7ee",
-                color: "#ffc7ee"
-            }
-        }
-    }
-
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         const {error, paymentMethod} = await stripe.createPaymentMethod({
@@ -104,15 +80,28 @@ export default function PaymentForm() {
         <h1>Checkout</h1>
         <form onSubmit={handleSubmit}>
    
-                <div>
-                    <h2>You will be purschased ${cartTotal}</h2>
-                </div>
+                <table>
+        <tbody>
+            {items.map((cartitem) => {
+              return (
+              <tr key={cartitem.id} >
+                <td><img className='ItemImg' src={cartitem.productImage}></img></td>
+                <td><h5 className='ItemName'>{cartitem.productName}</h5></td>
+                <td><h5 className='ItemPrice'>${cartitem.price}</h5></td>
+                <td><h5 className='ItemQty'>x{cartitem.quantity}</h5></td>
+              </tr>
+                )
+            })}
+        </tbody>
+  </table>
+        <h2>You will be purschased ${cartTotal}</h2>
+                
                 <div className="FormRow">
                     <CardElement/>
                 </div>
 
         
-            <button onClick={postOrderHistory}>Pay</button>
+            <button>Pay</button>
         </form>
         </div>
         
