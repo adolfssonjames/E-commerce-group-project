@@ -1,19 +1,11 @@
-.test {
-    border: 1px solid black;
-}
-
-.test td{
-    width: 50%;
-}
 
 .back-btn {
     float: left;
-    width: 5%;
-    margin: 0 auto;
-    font-weight:400;
+    width: 10%;
     border-radius: 2px;
     height:30px;
     margin-top: 20px;
+    margin-left:20px;
     background-color: rgba(0, 0, 0, 0);
     border: 2.5px solid rgb(0, 0, 0);
 }
@@ -22,8 +14,47 @@
     color: white;
     transition: ease-in 0.2s;
  }
+ 
 
- .myaccount-wrapper {
-     width: 300px;
+ .form-body{
+     width:60%;
+     height: 500px;
+     position:absolute;
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin-top: 120px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 4px;
+    font-size: larger;
+    
  }
+
+ .input {
+     margin-bottom:10px;
+     
+ }
+
+.w-50 {
+    color: black;
+    width: 10%;
+    border-radius: 2px;
+    height:40px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left:20px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2.5px solid rgb(0, 0, 0);
+}
+.w-50:hover{
+    background-color: #51900078;
+    color: white;
+    transition: ease-in 0.2s;
+    border-color: black;
+}
+
+
+
+
+ 
+
  
