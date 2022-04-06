@@ -1,6 +1,9 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios"
 import React, { useState } from 'react'
+import { useCart } from 'react-use-cart';
+import {auth} from '../firebase/firebase'
+import {onAuthStateChanged} from 'firebase/auth'
 
 
 
@@ -9,6 +12,15 @@ export default function PaymentForm() {
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
+    const [loggedInUser, setCurrentLoggedInUser] = useState({})
+
+    const { items, cartTotal } = useCart();
+
+    onAuthStateChanged (auth, (currentUser) => {
+        setCurrentLoggedInUser(currentUser);
+    })
+    
+
     
     const CARD_OPTIONS = {
         iconStyle: "solid",
@@ -61,6 +73,29 @@ export default function PaymentForm() {
     }
 }
 
+
+
+    const postOrderHistory = async () => {
+        
+        const product = items;
+        const totalPrice = cartTotal;
+        const currentLoggedInUser = loggedInUser.email
+
+        
+        const newOrder = {
+            product, totalPrice, currentLoggedInUser
+        }
+
+        await axios.post ('http://localhost:5000/newOrder', newOrder)
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
+    
+
     return (
         <>
         {!success ? 
@@ -98,7 +133,7 @@ export default function PaymentForm() {
                 </div>
             
         
-            <button>Pay</button>
+            <button onClick={postOrderHistory}>Pay</button>
         </form>
         </div>
         :
