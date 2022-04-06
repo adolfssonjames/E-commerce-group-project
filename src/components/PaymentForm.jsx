@@ -8,7 +8,7 @@ import {onAuthStateChanged} from 'firebase/auth'
 
 
 export default function PaymentForm() {
-    const {cartTotal} = useCart()
+  
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()

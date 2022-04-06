@@ -15,7 +15,7 @@ mongoose.connect(process.env.DATABASE_ACCESS, () => console.log('Database connec
 
 
 
-app.post("/payment", cors(), async (req, res) => {
+app.post("/checkout", cors(), async (req, res) => {
 	let { amount, id } = req.body
 	try {
 		const payment = await stripe.paymentIntents.create({
