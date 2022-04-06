@@ -1,0 +1,12 @@
+.AboutHead {
+    font-size: 40px;
+}
+
+.AboutPage {
+    background-color: mistyrose;
+    border-radius: 40px;
+    width: 60%;
+    height: 90%;
+    margin: auto;
+    padding:20px;
+}
