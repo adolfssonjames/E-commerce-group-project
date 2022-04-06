@@ -3,6 +3,7 @@
 }
 
 .ShoppingCart {
+    margin: auto;
     padding-top: 10%;
     width: 90%;
     display: grid;
@@ -11,7 +12,7 @@
 }
 
 table td {
-    width: 10%;
+    width: 20%;
     padding: 20px;
 }
 .MinusBtn,
@@ -23,8 +24,11 @@ table td {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
+    width: 50px;
+    height: 45px;
 }
+
 
 .RemoveBtn,
 .EmptyBtn {
@@ -35,7 +39,8 @@ table td {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 17px;
+    height: 45px;
 }
 
 .PayBtn {
@@ -46,7 +51,8 @@ table td {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 17px;
+    height: 45px;
 }
 
 .PayLink {
