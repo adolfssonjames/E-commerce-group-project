@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useRef } from 'react';
+import React, { useState, useRef } from 'react'
 import '../CSS/MyAccount.css';
 import {Card, Form, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -7,19 +6,23 @@ import {auth} from '../firebase/firebase'
 import {onAuthStateChanged, updateEmail} from 'firebase/auth'
 import { Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
+import axios from 'axios';
 
 
 function MyAccount() {
-  
-    
-    const emailRef = useRef()
-    const passwordRef = useRef()
-    const [currentLoggedInUser, setCurrentLoggedInUser] = useState({})
-    const [emailFieldDisabled, setEmailFieldDisabled] = useState(true)
-    const [changeEmailButtonText, setChangeEmailButtonText] = useState('Change Email')
-    const [changeEmailButtonColor, setChangeEmailButtonColor] = useState({})
-    const [newEmailadress, setNewEmailadress] = useState('')
-    const [currentErrorMessage, setCurrentErrorMessage] = useState('')
+
+
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const [currentLoggedInUser, setCurrentLoggedInUser] = useState({});
+    const [emailFieldDisabled, setEmailFieldDisabled] = useState(true);
+    const [changeEmailButtonText, setChangeEmailButtonText] = useState('Change Email');
+    const [changeEmailButtonColor, setChangeEmailButtonColor] = useState({});
+    const [newEmailadress, setNewEmailadress] = useState('');
+    const [currentErrorMessage, setCurrentErrorMessage] = useState('');
+    const [orderHistory, setOrderHistory] = useState({});
+    console.log(orderHistory)
+
 
 
     onAuthStateChanged (auth, (currentUser) => {
@@ -27,7 +30,7 @@ function MyAccount() {
     })
 
     const { items } = useCart();
-    console.log(items)
+    
 
 
     const changeEmailHandler = () => {
@@ -52,6 +55,22 @@ function MyAccount() {
     }
 
 
+    const getOrderHistory = async () => {
+        
+
+        if(Object.keys(currentLoggedInUser).length === 0){
+             console.log('Wait for currentLoggedInUser to be populated')
+        }else{
+            await axios.post ('http://localhost:5000/getOrderHistory', currentLoggedInUser)
+        .then(response => {
+            setOrderHistory(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        }
+    }
+    
 
 
 
@@ -91,8 +110,16 @@ function MyAccount() {
                 </Form>
             </Card.Body>
         </Card>
-        
+        <table className='.table'>
+            <tbody>
+            <tr>
+                <th onClick={getOrderHistory}>test</th>
+            </tr>
+            </tbody>
+        </table>
+    
     </>
+    
   )
 }
 
