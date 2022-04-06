@@ -1,5 +1,6 @@
 import React from "react";
 import "../CSS/Home.css";
+import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -19,6 +20,11 @@ const Home = () => {
         <img src="https://placeimg.com/400/300/nature" alt="sample image" />
       </div>
       <div id="homePageSecond" class="homePageTextBox">
+        <Link to="/Products"
+              style={{ textDecoration: 'none',
+                       color: 'black'
+                     }}
+              className="link-prod">
         <h2>Buy our products</h2>
         <p>
           <b>Our company has</b> Lorem ipsum, dolor sit amet consectetur
@@ -26,6 +32,7 @@ const Home = () => {
           magni impedit? Sequi explicabo rerum quidem nisi molestiae, neque
           assumenda dolorem exercitationem a consequuntur.
         </p>
+        </Link>
         <img src="https://placeimg.com/300/300/nature" alt="sample image" />
       </div>
     </div>
