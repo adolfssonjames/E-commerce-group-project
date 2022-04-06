@@ -51,7 +51,7 @@ const Shoppingcart = () => {
       <h4 className='TotalPrice'>Total Price: ${cartTotal}</h4>
   </div>
 
-  <Link to="/payment" className="PayLink"><button className='PayBtn'> Payment </button></Link>
+  <Link to="/checkout" className="PayLink"><button className='PayBtn'> Payment </button></Link>
   <button className='EmptyBtn' onClick={emptyCart}> Empty cart </button>
 
   </section>
