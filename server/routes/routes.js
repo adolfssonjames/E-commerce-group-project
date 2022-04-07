@@ -2,7 +2,6 @@ const express = require ('express');
 const productSchema = require('../mongoose_schemas/productSchema');
 const router = express.Router();
 const productModel = require('../mongoose_schemas/productSchema');
-const imageSchema = require('../mongoose_schemas/imageSchema')
 const OrderHistorySchema = require('../mongoose_schemas/orderHistorySchema')
 const multer = require('multer');
 const multerStorage = multer.diskStorage({
@@ -35,16 +34,6 @@ router.post('/post', multerImageUpload.single('productImage'), (request, respons
     })
     .catch(error => response.json(error))
 
-})
-//Get images 
-router.get('/getimages', (request, response) => {
-
-    imageSchema.find() 
-    .then(data => {
-        console.log(data)
-    })
-    .catch(error => 
-        console.log(error))
 })
 
 // Get all products
