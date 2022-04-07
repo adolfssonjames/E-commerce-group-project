@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React/*, { useState, useEffect } */ from "react";
 import "../CSS/Products.css";
 import data from "./ProductData";
 import { useCart } from "react-use-cart";
@@ -37,15 +37,14 @@ const Products = () => {
       </section>
       <div id="articles">
 
-             {data.Items.map((product) => {
+             {data.Items.map((product) => { //products.map((product) => { productImage, productName, description
                 return (
-                  <div key={product.id} item={product} className="product">
+                  <div key={product.id} item={product} className="product"> 
                     <img src={product.image} alt={product.name} width="100" height="100"></img>
                     <h5>{product.name}</h5>
                     <p className="item-price">${product.price}</p>
                     <p>{product.desc}</p>
                     <button className="to-cart-btn" onClick={() => addItem(product)}>Add to cart</button>
-
            </div>
           )
         })}
