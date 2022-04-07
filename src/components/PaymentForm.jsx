@@ -1,4 +1,4 @@
-import { CardCvcElement, CardElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from "@stripe/react-stripe-js"
+import { CardCvcElement, CardElement, CardExpiryElement, CardNumberElement, CardNameElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios"
 import React, { useState } from 'react'
 import { CartProvider, useCart } from 'react-use-cart';
@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import {auth} from '../firebase/firebase'
 import {onAuthStateChanged} from 'firebase/auth'
 import { Card, CardImg } from "react-bootstrap";
+import { Provider } from "react-redux";
+import { CreditCard } from "@material-ui/icons";
 
 
 export default function PaymentForm() {
