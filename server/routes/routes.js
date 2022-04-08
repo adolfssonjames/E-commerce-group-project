@@ -21,10 +21,10 @@ const multerImageUpload = multer({storage: multerStorage})
 router.post('/post', multerImageUpload.single('productImage'), (request, response) =>{
 
     let newProduct = new productModel({
-        productName: request.body.productName,
-        description: request.body.description, 
+        productName: request.body.name,
+        description: request.body.desc, 
         price: request.body.price,
-        productImage: request.file.path,
+        image: request.file.path,
         id: request.body.id
     })
 
