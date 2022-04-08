@@ -1,0 +1,26 @@
+#SingleProductMain {
+  display: grid;
+  grid-template-areas:
+    "a b"
+    "a c"
+    "a d";
+  padding: 80px;
+}
+#SingleProductName {
+  color: black;
+  grid-area: b;
+  align-self: flex-end;
+}
+#SingleProductDesc {
+  grid-area: c;
+}
+#SingleProductImg {
+  grid-area: a;
+  padding-right: 120px;
+}
+#SingleProduct-to-cart-btn {
+  grid-area: d;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+}
