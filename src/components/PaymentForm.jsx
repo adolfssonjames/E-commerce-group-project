@@ -18,7 +18,7 @@ export default function PaymentForm() {
 
     const [loggedInUser, setCurrentLoggedInUser] = useState({})
 
-    const { items, cartTotal, emptyCart} = useCart();
+    const { items, cartTotal, emptyCart } = useCart();
 
     onAuthStateChanged (auth, (currentUser) => {
         setCurrentLoggedInUser(currentUser);
@@ -75,13 +75,17 @@ export default function PaymentForm() {
             console.log(error)
         })
     }
+
+    const OrderhistoryAndEmptycart = () => {
+        postOrderHistory();
+        emptyCart();
+    }
     
 
     return (
     
     <div className="container">
         <h1>Checkout</h1>
-        <form onSubmit={emptyCart}>
    
                 <table>
         <tbody>
@@ -111,8 +115,7 @@ export default function PaymentForm() {
                 </div>
 
         
-            <Link to="/order"><button onClick={postOrderHistory}>Pay ${cartTotal}</button></Link>
-        </form>
+            <Link to="/order"><button onClick={OrderhistoryAndEmptycart}>Pay ${cartTotal}</button></Link>
         </div>
         
 
