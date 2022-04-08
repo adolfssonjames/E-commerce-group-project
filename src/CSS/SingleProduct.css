@@ -4,7 +4,8 @@
     "a b"
     "a c"
     "a d";
-  padding: 80px;
+  padding-left: 220px;
+  padding-right: 220px;
 }
 #SingleProductName {
   color: black;
@@ -13,10 +14,12 @@
 }
 #SingleProductDesc {
   grid-area: c;
+  padding-bottom: 0%;
 }
 #SingleProductImg {
   grid-area: a;
-  padding-right: 120px;
+  margin: auto;
+  width: 700px;
 }
 #SingleProduct-to-cart-btn {
   grid-area: d;
