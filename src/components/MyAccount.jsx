@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {auth} from '../firebase/firebase'
 import {onAuthStateChanged, updateEmail} from 'firebase/auth'
 import { Link } from 'react-router-dom';
-import { useCart } from 'react-use-cart';
 import axios from 'axios';
 
 
@@ -14,7 +13,6 @@ function MyAccount() {
 
 
     const emailRef = useRef();
-    const passwordRef = useRef();
     const [currentLoggedInUser, setCurrentLoggedInUser] = useState({});
     const [emailFieldDisabled, setEmailFieldDisabled] = useState(true);
     const [changeEmailButtonText, setChangeEmailButtonText] = useState('Change Email');
@@ -29,8 +27,6 @@ function MyAccount() {
     onAuthStateChanged (auth, (currentUser) => {
         setCurrentLoggedInUser(currentUser);
     })
-
-    const { items } = useCart();
     
 
 
@@ -39,7 +35,7 @@ function MyAccount() {
         setEmailFieldDisabled (false)
         setChangeEmailButtonText ('Save new email');
         setChangeEmailButtonColor ({backgroundColor: 'orange'});
-        if(changeEmailButtonText == 'Save new email'){
+        if(changeEmailButtonText === 'Save new email'){
             updateEmail(auth.currentUser, newEmailadress)
             .then(() => {
                 setChangeEmailButtonText ('new email saved!');
@@ -75,9 +71,7 @@ function MyAccount() {
     
         
     
-    if(orderHistory.data == undefined){
-
-    }else{
+    if(orderHistory.data){
         return(
             <div id="orderHistory">
             <Link to="/MyPage"><button className="back-btn"> Back </button> </Link>
@@ -86,7 +80,6 @@ function MyAccount() {
                 <div id='order' key={order._id} item={order} className="order">
                 <h5>Order number: {order._id}</h5>
                 <h5>Products: {order.product.map((individualOrder, index)=>{
-                    console.log(individualOrder)
                     return(
                         <div id='individualOrders'key={index}>
                             <h6>{individualOrder.name}</h6>
@@ -132,23 +125,6 @@ function MyAccount() {
                 <button onClick={getOrderHistory}>Show orders</button>
             </Card.Body>
         </Card>
-        
-        
-        {/*
-
-                    <div id="articles">
-                    {orderHistory.data.map((product) => {
-                    return (
-                        <div key={product.id} item={product} className="product">
-                        <h5>{product.name}</h5>
-                        <p className="item-price">${product.price}</p>
-                        <p>{product.desc}</p>
-                        </div>
-                        )
-                    })}
-                </div>
-                */}
-
         </>
   )
 }
