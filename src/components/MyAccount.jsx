@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react'
 import '../CSS/MyAccount.css';
 import {Card, Form, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../CSS/MyAccount.css';
 import {auth} from '../firebase/firebase'
 import {onAuthStateChanged, updateEmail} from 'firebase/auth'
 import { Link } from 'react-router-dom';
@@ -22,8 +21,9 @@ function MyAccount() {
     const [changeEmailButtonColor, setChangeEmailButtonColor] = useState({});
     const [newEmailadress, setNewEmailadress] = useState('');
     const [currentErrorMessage, setCurrentErrorMessage] = useState('');
-    const [orderHistory, setOrderHistory] = useState([{}]);
-    console.log(orderHistory)
+    const [orderHistory, setOrderHistory] = useState([]);
+    
+    console.log(orderHistory.data)
 
 
     onAuthStateChanged (auth, (currentUser) => {
@@ -71,6 +71,38 @@ function MyAccount() {
         })
         }
     }
+
+    
+        
+    
+    if(orderHistory.data == undefined){
+
+    }else{
+        return(
+            <div id="orderHistory">
+            <Link to="/MyPage"><button className="back-btn"> Back </button> </Link>
+            {orderHistory.data.map((order) => {
+            return (
+                <div id='order' key={order._id} item={order} className="order">
+                <h5>Order number: {order._id}</h5>
+                <h5>Products: {order.product.map((individualOrder, index)=>{
+                    console.log(individualOrder)
+                    return(
+                        <div id='individualOrders'key={index}>
+                            <h6>{individualOrder.name}</h6>
+                            <h6>Price: {individualOrder.price}</h6>
+                            <h6>Quantity: {individualOrder.quantity}</h6>
+                        </div>
+                    )
+                })}</h5>
+                <p className="item-price">Total price: ${order.totalPrice}</p>
+                <p>Order date: {order.date.slice(0, 16).replace('T', ' ')}</p>
+                </div>
+                )
+            })}
+        </div>
+        )
+    }
     
 
 
@@ -82,15 +114,6 @@ function MyAccount() {
                 
                 <Link to="/MyPage"><button className="back-btn"> Back </button> </Link>
                 <h2 className='text-center'>My Account</h2>
-                
-                <table className='.table'>
-            <tbody>
-            <tr>
-                <th onClick={getOrderHistory}>Show orders</th>
-            </tr>
-            </tbody>
-        </table>
-               
                 <Form>
                     <Form.Group>
                         <Form.Label className='label' >Current Email</Form.Label>
@@ -105,17 +128,31 @@ function MyAccount() {
                         <Button className='w-50' style={changeEmailButtonColor} onClick={changeEmailHandler} variant="primary">{changeEmailButtonText}</Button>
                         <p>{currentErrorMessage}</p>
                     </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Current Password</Form.Label>
-                        <Form.Control className='input' type='password' ref={passwordRef} required></Form.Control>
-                    </Form.Group>
-                    <Button className='w-50' type='submit'>Submit</Button>
                 </Form>
+                <button onClick={getOrderHistory}>Show orders</button>
             </Card.Body>
         </Card>
-    </>
-    
+        
+        
+        {/*
+
+                    <div id="articles">
+                    {orderHistory.data.map((product) => {
+                    return (
+                        <div key={product.id} item={product} className="product">
+                        <h5>{product.name}</h5>
+                        <p className="item-price">${product.price}</p>
+                        <p>{product.desc}</p>
+                        </div>
+                        )
+                    })}
+                </div>
+                */}
+
+        </>
   )
 }
+
+
 
 export default MyAccount
