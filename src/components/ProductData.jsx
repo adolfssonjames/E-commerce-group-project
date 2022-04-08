@@ -6,7 +6,6 @@ import img5 from "../productImages/Bonsai60.jpg"
 import img6 from "../productImages/Bonsai90.jpg"
 import img7 from "../productImages/BonsaiGeisha.jpg"
 
-
 const data = {
     Items:[
         {
